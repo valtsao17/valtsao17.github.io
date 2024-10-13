@@ -55,8 +55,8 @@ a collection of the courses i've taken.
   <li>CEE288: Seismic Hazard and Risk Analysis </li>
 </ul>
 
-<h2><strong>cultural</strong></h2>
-<h4> ms </h4>
+<h3><strong>cultural</strong></h3>
+<h5> ms </h5>
 <ul>
   <li>CHINLANG10: Southern Min (Taiwanese) Conversation, 1st Quarter	</li>
   <li>CHINLANG11: Southern Min (Taiwanese) Conversation, 2nd Quarter </li>
