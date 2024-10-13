@@ -24,6 +24,7 @@ motion intensity.
         <li>Total Building Square Footage = 68,258.43sf</li>
     </ol>  
 </section>
+
     ---
     layout: page
     title: project
