@@ -1,18 +1,29 @@
 ---
 layout: page
-title: project 1
-description: with background image
+title: CEE288 Final Project
+description: feasibility study for seismic retrofit 
 img: assets/img/12.jpg
 importance: 1
 category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+As the final project of CEE288 course at Stanford, students were asked to perform assessments of an on-campus building using HAZUS, SP3, and PBE at ground motion
+amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequence predictions were evaluated across analysis tools, and how they vary as a function of ground
+motion intensity.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+<section>
+  <h1>Building Description</h1>
+  <p>The following address was used to perform analyses on the Blackwelder building:
+      781 Escondido Road, Stanford, CA 94305 </p>
+   <p>The following building details and assumptions were used for all analyses: </p>
+    <ol>
+        <li>Soil Information: Site Class C</li>
+        <li>Building Height: 146 feet</li>
+        <li>Total Cost per Square Foot = $800/sf</li>
+        <li>Total Building Square Footage = 68,258.43sf</li>
+    </ol>  
+</section>
 
     ---
     layout: page
