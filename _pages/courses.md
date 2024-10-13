@@ -21,7 +21,7 @@ a collection of the courses i've taken.
   <li>MS&E314: Optimization in Data Science and ML</li>
 </ul>
 
-<h3>analysis</h3>
+<h2>analysis</h2>
 <h4> ms coursework </h4>
 <ul>
   <li>CEE280: Advanced Structural Analysis </li>
@@ -29,14 +29,14 @@ a collection of the courses i've taken.
   <li>CEE284: Finite Element Methods in Structural Dynamics	</li>
 </ul>
 
-<h3>design</h3>
+<h2>design</h2>
 <h4> ms coursework </h4>
 <ul>
   <li>CEE285A: Advanced Structural Concrete Behavior and Design </li>
   <li>CEE223: Materials for Sustainable Built Environments </li>
 </ul>
 
-<h3>mechanics</h3>
+<h2>mechanics</h2>
 <h4> phd coursework </h4>
 <ul>
   <li>CEE621: Plasticity </li>
@@ -48,14 +48,14 @@ a collection of the courses i've taken.
   <li>CEE281: Mechanics and Finite Elements	[Audited] </li>
 </ul>
 
-<h3>risk and statistical modeling</h3>
+<h2>risk and statistical modeling</h2>
 <h4> ms coursework </h4>
 <ul>
   <li>CEE203: Probabilistic Models in Civil Engineering	</li>
   <li>CEE288: Seismic Hazard and Risk Analysis </li>
 </ul>
 
-<h3>cultural</h3>
+<h2>cultural</h2>
 <h4> ms coursework </h4>
 <ul>
   <li>CHINLANG10: Southern Min (Taiwanese) Conversation, 1st Quarter	</li>
