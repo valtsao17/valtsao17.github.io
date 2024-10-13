@@ -9,8 +9,7 @@ related_publications: true
 ---
 
 As the final project of CEE288 course at Stanford, students were asked to perform assessments of an on-campus building using HAZUS, SP3, and PBE at ground motion
-amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequence predictions were evaluated across analysis tools, and how they vary as a function of ground
-motion intensity.
+amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequence predictions were evaluated across analysis tools, and how they vary as a function of ground motion intensity.
 
 <section>
   <h3>Building Description</h3>
@@ -25,6 +24,26 @@ motion intensity.
     </ol>  
 </section>
 
+<section>
+ <u>Assumptions</u> 
+  <ol>
+        <li> In order to analyze the current Blackwelder building, we defined the following parameters using Table 3.1 and 3.2 from the HAZUS®MH MR4 Technical Manual:
+              a.	Building Type: C2H (High Rise Concrete Shear Wall)
+              b.	Occupancy Type: Multi-Family Dwelling (RES3a-f) </li>
+      <li>For the building retrofit option, new analysis was modeled with the following building type:
+              a.	Building Type: S4H (Steel Frame with Cast-in-Place Concrete Shear Walls)</li>
+      <li> Exceedance probabilities at each ground motion were taken from the Stanford PSHA 2013 Report for Site 1 conducted by the URS Corporation because more discretization of the hazard curve was desired. From the report, a step of 0.05g was recorded compared to the available USGS data shown in Figure 1.</li>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/p1_1.jpg" title="hazard curve" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 1. Hazard curve for site from USGS.
+</div>
+
+</section>
     ---
     layout: page
     title: project
@@ -81,21 +100,6 @@ Using the θ and β values defined for each damage state and component type as s
   </tr>
 </tbody></table>
 
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
