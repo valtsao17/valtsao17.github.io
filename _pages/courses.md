@@ -12,7 +12,7 @@ a collection of the courses i've taken.
 <h2>machine learning</h2>
 <h4> phd coursework </h4>
 <ul>
-  <li>CEE506: Environmental Spatial Data Analsis </li>
+  <li>CEE506: Environmental Spatial Data Analysis </li>
 </ul>
 
 <h4> ms coursework </h4>
