@@ -64,9 +64,11 @@ where DS = Damage State, S_a  refers to the spectral acceleration values, and θ
 
 Using the θ and β values defined for each damage state and component type as shown in Table 1, four fragility functions were each plotted for structural, acceleration-sensitive, and drift-sensitive components as shown in Figure 2. Note for drift-sensitive components, the fragility functions were based on spectral displacement values due to the distribution parameters provided in the HAZUS manual.
 
-<table><thead>
+<table>
+  <caption>Table 1: Fragility Curve Parameters for the C2H building type.</caption>
+  <thead>
   <tr>
-    <th>$\theta$<br>$\beta$</th>
+    <th>θ<br>β</th>
     <th colspan="4">Damage State</th>
   </tr></thead>
 <tbody>
@@ -102,12 +104,18 @@ Using the θ and β values defined for each damage state and component type as s
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/p1_2.png" title="fragility func" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    This image can also have a caption. It's like magic.
+    Plot of fragility functions for each component type, separated by damage state.
 </div>
+
+As expected, the fragility functions shift increasingly to the right of the plots as the damage states change from slight, moderate, extensive, to complete, indicating that the probability of exceeding that limit decreases with higher levels of damage. To then compute the probability of being in each damage state, we effectively take the difference between each of the fragility functions as such:
+  \begin{align}
+      P(DS = ds_i  | S_a) = P(DS >= ds_i  | S_a) - P(DS >= ds_{i+1}  | S_a)
+  \end{align}
+
 
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
 Say you wanted to write a bit about your project before you posted the rest of the images.
