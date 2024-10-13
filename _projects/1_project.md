@@ -116,6 +116,18 @@ As expected, the fragility functions shift increasingly to the right of the plot
       P(DS = ds_i  | S_a) = P(DS >= ds_i  | S_a) - P(DS >= ds_{i+1}  | S_a)
   \end{align}
 
+Figure 3 visualizes this data for each component type on a range of PGA values.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/p1_3.png" title="p_ds" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Plot of P(DS = DS | PGA) by PGA values for structural (left), acceleration-sensitive (middle), and drift-sensitive (right) components. 
+</div>
+
+To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. 
+
 
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
 Say you wanted to write a bit about your project before you posted the rest of the images.
