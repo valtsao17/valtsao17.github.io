@@ -24,13 +24,23 @@ motion intensity.
         <li>Total Building Square Footage = 68,258.43sf</li>
     </ol>  
 </section>
-
     ---
     layout: page
     title: project
     description: a project with a background image
     img: /assets/img/12.jpg
     ---
+
+<section>
+  <h1>HAZUS</h1>
+  To evaluate the vulnerability of the Blackwelder building, fragility functions were produced using Eqn. (1) below. Fragility functions are probability distributions used   to describe how likely a component is to be damaged within a damage state when subjected to a specific ground motion. In our study, fragility functions take the form of a lognormal cumulative distribution function as follows:
+
+  \begin{align}
+    P(DS >= ds | S_a) &= phi \left(\dfrac{1}{\beta_{ds}} ln \left(\dfrac{S_a}{\theta_{ds}} \right) \right)
+  \end{align}
+</section>
+
+where DS = Damage State, S_a  refers to the spectral acceleration values, and θ and β are the input parameters that correspond to median and standard deviation of the probability distribution. 
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
