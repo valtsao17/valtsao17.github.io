@@ -47,7 +47,7 @@ Using the θ and β values defined for each damage state and component type as s
 
 <table><thead>
   <tr>
-    <th>Theta<br>Beta</th>
+    <th>$\theta$<br>$\beta$</th>
     <th colspan="4">Damage State</th>
   </tr></thead>
 <tbody>
