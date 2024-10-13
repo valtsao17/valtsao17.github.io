@@ -9,13 +9,13 @@ nav_order: 6
 
 a collection of the courses i've taken. 
 
-<h2>machine learning</h2>
-<h4> phd coursework </h4>
+<h3><strong>machine learning</strong></h3>
+<h5> phd coursework </h5>
 <ul>
   <li>CEE506: Environmental Spatial Data Analysis </li>
 </ul>
 
-<h4> ms coursework </h4>
+<h5> ms coursework </h5>
 <ul>
   <li>CEE247C: Computer Vision for the Built Environment </li>
   <li>MS&E314: Optimization in Data Science and ML</li>
