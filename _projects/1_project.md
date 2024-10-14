@@ -42,8 +42,6 @@ amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequen
 <div class="caption">
     Figure 1. Hazard curve for site from USGS.
 </div>
-
-</section>
     
 <section>
 	
@@ -51,7 +49,7 @@ amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequen
   To evaluate the vulnerability of the Blackwelder building, fragility functions were produced using Eqn. (1) below. Fragility functions are probability distributions used   to describe how likely a component is to be damaged within a damage state when subjected to a specific ground motion. In our study, fragility functions take the form of a lognormal cumulative distribution function as follows:
 
   \begin{align}
-    P(DS >= ds | S_a) &= \phi \left(\dfrac{1}{\beta_{ds}} ln \left(\dfrac{S_a}{\theta_{ds}} \right) \right)
+    P(DS ≥ ds | S_a) &= \phi \left(\dfrac{1}{\beta_{ds}} ln \left(\dfrac{S_a}{\theta_{ds}} \right) \right)
   \end{align}
 </section>
 
@@ -108,7 +106,7 @@ Using the θ and β values defined for each damage state and component type as s
 
 As expected, the fragility functions shift increasingly to the right of the plots as the damage states change from slight, moderate, extensive, to complete, indicating that the probability of exceeding that limit decreases with higher levels of damage. To then compute the probability of being in each damage state, we effectively take the difference between each of the fragility functions as such:
   \begin{align}
-      P(DS = ds_i  | S_a) = P(DS >= ds_i  | S_a) - P(DS >= ds_{i+1}  | S_a)
+      P(DS = ds_i  | S_a) = P(DS ≥ ds_i  | S_a) - P(DS ≥ ds_{i+1}  | S_a)
   \end{align}
 
 Figure 3 visualizes this data for each component type on a range of PGA values.
@@ -121,7 +119,7 @@ Figure 3 visualizes this data for each component type on a range of PGA values.
     Figure 3. Plot of P(DS = DS | PGA) by PGA values for structural (left), acceleration-sensitive (middle), and drift-sensitive (right) components. 
 </div>
 
-To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. 
+To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. \n
 
 <section>
   <h4>SP3</h4>
@@ -138,28 +136,33 @@ To evaluate the impact of a seismic retrofit, the fragility functions were shift
 
 With these assumptions and some preliminary inputs from the user including model and site information, site coordinates, and primary building information, the SP3 software was able to automate reports for risk analysis, detailed component damage breakdowns, and functional recovery. To name a few of the other changes made to the default model, a total of 2000 simulations were used, slender shear walls and RC Flat Slab were specified, an insulating glass unit glazing of 60% was approximated, and laterally braced metal stud partition walls with gypsum and wallpaper finishes were chosen to provide the most accurate match to the current state of the building. All building components used within the analysis were user-defined based on a given components spreadsheet in order to provide a more direct line of comparison to the PBE results, which uses the same component list. The default 1st Mode Period SA(T_1) of 1.91s in both directions was applied. The structure’s 1st-Mode Period, with 2%, 10%, and 50% exceedance probabilities in 50 years are listed in Table 2.
 </section>
-
-<table>
-  <caption>Table 2: Spectral Acceleration Values corresponding to the 1st-Mode Period of the building at various exceedance rates.</caption>
-  <thead>
+  
+<table style="undefined;table-layout: fixed; width: 649px"><colgroup>
+	<caption>Table 2: Spectral Acceleration Values corresponding to the 1st-Mode Period of the building at various exceedance rates.</caption>
+<col style="width: 141.333333px">
+<col style="width: 160.333333px">
+<col style="width: 174.333333px">
+<col style="width: 173.333333px">
+</colgroup>
+<thead>
   <tr>
-    <th>Sa (T_1 = 1.91s)<br></th>
+    <th>Sa (T_1 = 1.91s)</th>
     <th>2% in 50 Years</th>
-    <th>10% in 50 Years   <br></th>
+    <th>10% in 50 Years   </th>
     <th> 50% in 50 Years   </th>
   </tr></thead>
 <tbody>
   <tr>
-    <td>&nbsp;&nbsp;&nbsp;<br>Direction 1&nbsp;&nbsp;&nbsp;</td>
-    <td>&nbsp;&nbsp;&nbsp;<br>0.618&nbsp;&nbsp;&nbsp;</td>
-    <td>&nbsp;&nbsp;&nbsp;<br>0.279&nbsp;&nbsp;&nbsp;</td>
-    <td>&nbsp;&nbsp;&nbsp;<br>0.076&nbsp;&nbsp;&nbsp;</td>
+    <td>   Direction 1   </td>
+    <td>   0.618   </td>
+    <td>   0.279   </td>
+    <td>   0.076   </td>
   </tr>
   <tr>
-    <td>&nbsp;&nbsp;&nbsp;<br>Direction 2&nbsp;&nbsp;&nbsp;</td>
-    <td>&nbsp;&nbsp;&nbsp;<br>0.628&nbsp;&nbsp;&nbsp;</td>
-    <td>&nbsp;&nbsp;&nbsp;<br>0.282&nbsp;&nbsp;&nbsp;</td>
-    <td>&nbsp;&nbsp;&nbsp;<br>0.077&nbsp;&nbsp;&nbsp;</td>
+    <td>   Direction 2   </td>
+    <td>   0.628   </td>
+    <td>   0.282   </td>
+    <td>   0.077   </td>
   </tr>
 </tbody>
 </table>
