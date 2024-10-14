@@ -44,14 +44,9 @@ amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequen
 </div>
 
 </section>
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
+    
 <section>
+	
   <h4>HAZUS</h4>
   To evaluate the vulnerability of the Blackwelder building, fragility functions were produced using Eqn. (1) below. Fragility functions are probability distributions used   to describe how likely a component is to be damaged within a damage state when subjected to a specific ground motion. In our study, fragility functions take the form of a lognormal cumulative distribution function as follows:
 
@@ -108,7 +103,7 @@ Using the θ and β values defined for each damage state and component type as s
     </div>
 </div>
 <div class="caption">
-    Plot of fragility functions for each component type, separated by damage state.
+    Figure 2. Plot of fragility functions for each component type, separated by damage state.
 </div>
 
 As expected, the fragility functions shift increasingly to the right of the plots as the damage states change from slight, moderate, extensive, to complete, indicating that the probability of exceeding that limit decreases with higher levels of damage. To then compute the probability of being in each damage state, we effectively take the difference between each of the fragility functions as such:
@@ -123,7 +118,7 @@ Figure 3 visualizes this data for each component type on a range of PGA values.
     </div>
 </div>
 <div class="caption">
-    Plot of P(DS = DS | PGA) by PGA values for structural (left), acceleration-sensitive (middle), and drift-sensitive (right) components. 
+    Figure 3. Plot of P(DS = DS | PGA) by PGA values for structural (left), acceleration-sensitive (middle), and drift-sensitive (right) components. 
 </div>
 
 To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. 
@@ -131,6 +126,8 @@ To evaluate the impact of a seismic retrofit, the fragility functions were shift
 <section>
   <h4>SP3</h4>
   The initial assumptions taken to build the SP3 model are listed as shown:
+</section>
+<section>
   <u>Assumptions</u>
    <ol>
         <li>The building was analyzed under Risk Category I/II. Seismic Importance Factor (Ie) of 1.00 as designated with a Drift Limit of 0.625 in both directions.
@@ -140,7 +137,6 @@ To evaluate the impact of a seismic retrofit, the fragility functions were shift
     </ol>  
 
 With these assumptions and some preliminary inputs from the user including model and site information, site coordinates, and primary building information, the SP3 software was able to automate reports for risk analysis, detailed component damage breakdowns, and functional recovery. To name a few of the other changes made to the default model, a total of 2000 simulations were used, slender shear walls and RC Flat Slab were specified, an insulating glass unit glazing of 60% was approximated, and laterally braced metal stud partition walls with gypsum and wallpaper finishes were chosen to provide the most accurate match to the current state of the building. All building components used within the analysis were user-defined based on a given components spreadsheet in order to provide a more direct line of comparison to the PBE results, which uses the same component list. The default 1st Mode Period SA(T_1) of 1.91s in both directions was applied. The structure’s 1st-Mode Period, with 2%, 10%, and 50% exceedance probabilities in 50 years are listed in Table 2.
-
 </section>
 
 <table>
@@ -171,7 +167,9 @@ With these assumptions and some preliminary inputs from the user including model
 <section>
   <h4>PBE</h4>
   The initial assumptions taken to build the PBE model are listed as shown:
+</section>
 
+<section>
   <u>Assumptions</u>
     <ol>
         <li> A total of 9,125 worker days was specified for this analysis based on a 1 year repair timeframe with 25 workers. This number was computed by taking 365 days * 25 workers/day = 9,125 worker days. </li>
