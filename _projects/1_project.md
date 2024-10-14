@@ -4,7 +4,7 @@ title: cee288 final project
 description: feasibility study for seismic retrofit 
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: past
 related_publications: true
 ---
 
@@ -119,10 +119,10 @@ Figure 3 visualizes this data for each component type on a range of PGA values.
     Figure 3. Plot of P(DS = DS | PGA) by PGA values for structural (left), acceleration-sensitive (middle), and drift-sensitive (right) components. 
 </div>
 
-To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. \n
+To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. 
 
 <section>
-  <h4>SP3</h4>
+  <h4><br>SP3</h4>
   The initial assumptions taken to build the SP3 model are listed as shown:
 </section>
 <section>
@@ -136,9 +136,19 @@ To evaluate the impact of a seismic retrofit, the fragility functions were shift
 
 With these assumptions and some preliminary inputs from the user including model and site information, site coordinates, and primary building information, the SP3 software was able to automate reports for risk analysis, detailed component damage breakdowns, and functional recovery. To name a few of the other changes made to the default model, a total of 2000 simulations were used, slender shear walls and RC Flat Slab were specified, an insulating glass unit glazing of 60% was approximated, and laterally braced metal stud partition walls with gypsum and wallpaper finishes were chosen to provide the most accurate match to the current state of the building. All building components used within the analysis were user-defined based on a given components spreadsheet in order to provide a more direct line of comparison to the PBE results, which uses the same component list. The default 1st Mode Period SA(T_1) of 1.91s in both directions was applied. The structure’s 1st-Mode Period, with 2%, 10%, and 50% exceedance probabilities in 50 years are listed in Table 2.
 </section>
-  
-<table style="undefined;table-layout: fixed; width: 649px"><colgroup>
+	
+<style type="text/css">
 	<caption>Table 2: Spectral Acceleration Values corresponding to the 1st-Mode Period of the building at various exceedance rates.</caption>
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-ov6f{background-color:#ffffff;border-color:#333333;text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg" style="undefined;table-layout: fixed; width: 649px"><colgroup>
 <col style="width: 141.333333px">
 <col style="width: 160.333333px">
 <col style="width: 174.333333px">
@@ -146,23 +156,23 @@ With these assumptions and some preliminary inputs from the user including model
 </colgroup>
 <thead>
   <tr>
-    <th>Sa (T_1 = 1.91s)</th>
-    <th>2% in 50 Years</th>
-    <th>10% in 50 Years   </th>
-    <th> 50% in 50 Years   </th>
+    <th class="tg-ov6f">Sa (T_1 = 1.91s)</th>
+    <th class="tg-ov6f">2% in 50 Years</th>
+    <th class="tg-ov6f"><span style="color:black">10% in 50 Years</span>   </th>
+    <th class="tg-ov6f"> <span style="color:black">50% in 50 Years</span>   </th>
   </tr></thead>
 <tbody>
   <tr>
-    <td>   Direction 1   </td>
-    <td>   0.618   </td>
-    <td>   0.279   </td>
-    <td>   0.076   </td>
+    <td class="tg-btxf">   Direction 1   </td>
+    <td class="tg-btxf">   0.618   </td>
+    <td class="tg-btxf">   0.279   </td>
+    <td class="tg-btxf">   0.076   </td>
   </tr>
   <tr>
-    <td>   Direction 2   </td>
-    <td>   0.628   </td>
-    <td>   0.282   </td>
-    <td>   0.077   </td>
+    <td class="tg-0pky">   Direction 2   </td>
+    <td class="tg-0pky">   0.628   </td>
+    <td class="tg-0pky">   0.282   </td>
+    <td class="tg-0pky">   0.077   </td>
   </tr>
 </tbody>
 </table>
@@ -205,6 +215,8 @@ However, the reverse is true for PFA values; PBE PFA values were typically highe
     Figure 5. PBE/SP3 comparison of median peak floor acceleration values by story, each direction. 
 </div>
 
+<br>Exact numerical results are omitted for this project. Additional details provided upon request. 
+
 <section> 
 	<h4><br>Limitations</h4>
 	<br> HAZUS is a generalized approach to loss estimation which relies on an inventory of buildings grouped by type. The loss distribution is based on the average of the building type, and therefore it does not consider site specific components. As specified in the HAZUS manual, buildings within the same category can experience very different damage and losses in an earthquake event, which means the calculated loss is a very rough estimate. An additional limitation noted in the manual is that predicted ground motions at areas very close to faults in California, like the Stanford site, may be inconsistent due to approximate modeling. Also, the method in which HAZUS computes loss ratio does not consider any uncertainty, a fact that may have resulted in a higher percentage of error for that calculation. 
@@ -222,10 +234,13 @@ While these numerical values from the HAZUS model are insightful, we acknowledge
 Our final recommendation is to leave the Blackwelder building as-is unless there is cause for greater concern with any of the structural components, and only proceed with the retrofit if the university is already considering a tangentially-related project such as a revamp. In doing so, the university would not have to incur any substantial additional costs because the structural membrane would already be exposed, allowing for an efficient retrofit process that would enhance the building resiliency.
 </section>
 
+This project was completed with the following person(s): YHT
+<!--
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
 Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.-->
 
+<!--
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
@@ -244,6 +259,7 @@ To make images responsive, add `img-fluid` class to each; for rounded corners an
 Here's the code for the last row of images above:
 
 {% raw %}
+-->
 
 ```html
 <div class="row justify-content-sm-center">
