@@ -138,7 +138,6 @@ With these assumptions and some preliminary inputs from the user including model
 </section>
 	
 <style type="text/css">
-	<caption>Table 2: Spectral Acceleration Values corresponding to the 1st-Mode Period of the building at various exceedance rates.</caption>
 .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
 .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
   font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
@@ -149,6 +148,7 @@ With these assumptions and some preliminary inputs from the user including model
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
 </style>
 <table class="tg" style="undefined;table-layout: fixed; width: 649px"><colgroup>
+		<caption>Table 2: Spectral Acceleration Values corresponding to the 1st-Mode Period of the building at various exceedance rates.</caption>
 <col style="width: 141.333333px">
 <col style="width: 160.333333px">
 <col style="width: 174.333333px">
@@ -178,7 +178,7 @@ With these assumptions and some preliminary inputs from the user including model
 </table>
 
 <section>
-  <h4>PBE</h4>
+  <h4><br>PBE</h4>
   The initial assumptions taken to build the PBE model are listed as shown:
 </section>
 
@@ -200,7 +200,7 @@ In order to perform a quick check on whether the data is reasonable, we could co
     </div>
 </div>
 <div class="caption">
-    Mean Drift (Peak Interstory Drift, ratio) and Acceleration (Peak Floor Acceleration, g).
+    Figure 4. Mean Drift (Peak Interstory Drift, ratio) and Acceleration (Peak Floor Acceleration, g).
 </div>
 
 Note that the demands on the structure vary between PBE and SP3. In general, the PID values reported from SP3 are higher than those inputted in PBE. At 2% exceedance probability, the peak drift in PBE was around 0.02 whereas SP3 reports 0.42. At 10% exceedance probability, the peak drift in PBE was around 0.015 whereas SP3 reports 0.07. At 50% exceedance probability, the peak drift in PBE was around 0.0035 whereas SP3 reports 0, though the latter was likely truncated due to formatting. 
@@ -234,7 +234,7 @@ While these numerical values from the HAZUS model are insightful, we acknowledge
 Our final recommendation is to leave the Blackwelder building as-is unless there is cause for greater concern with any of the structural components, and only proceed with the retrofit if the university is already considering a tangentially-related project such as a revamp. In doing so, the university would not have to incur any substantial additional costs because the structural membrane would already be exposed, allowing for an efficient retrofit process that would enhance the building resiliency.
 </section>
 
-This project was completed with the following person(s): YHT
+<br>This project was completed with the following person(s): YHT
 <!--
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
 Say you wanted to write a bit about your project before you posted the rest of the images.
@@ -259,7 +259,7 @@ To make images responsive, add `img-fluid` class to each; for rounded corners an
 Here's the code for the last row of images above:
 
 {% raw %}
--->
+
 
 ```html
 <div class="row justify-content-sm-center">
@@ -273,3 +273,4 @@ Here's the code for the last row of images above:
 ```
 
 {% endraw %}
+-->
