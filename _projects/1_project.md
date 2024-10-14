@@ -1,6 +1,6 @@
 ---
 layout: page
-title: CEE288 Final Project
+title: cee288 final project
 description: feasibility study for seismic retrofit 
 img: assets/img/12.jpg
 importance: 1
@@ -128,7 +128,72 @@ Figure 3 visualizes this data for each component type on a range of PGA values.
 
 To evaluate the impact of a seismic retrofit, the fragility functions were shifted by changing the median and the exceedance probabilities and the loss were recalculated. As a point of reference, the fragility curve median of a similar but more resilient HAZUS building type was used. The type selected was Steel Frame with Cast-in-Place Concrete Shear Walls (S4H) due to the presence of shear walls and improved performance. 
 
+<section>
+  <h4>SP3</h4>
+  The initial assumptions taken to build the SP3 model are listed as shown:
+  <u>Assumptions</u>
+   <ol>
+        <li>The building was analyzed under Risk Category I/II. Seismic Importance Factor (Ie) of 1.00 as designated with a Drift Limit of 0.625 in both directions.
+	Ground Motion Hazard Information was sourced from the U.S. Geological Survey.</li>
+        <li>Building components classified as “Contents” such as desktop electronics, bookcases, etc. were left out of this analysis. Concrete link beams were also not included to provide the closest analog to the PBE model, which excludes this because the beam rotation EDP is not available.</li>
+        <li>There is some uncertainty within the quantity of objects inputted for SP3. Namely, the block number was taken as the number for quantity for each of the added   components. However, it may be possible in some cases that one block could indicate a proportion or multiplier for the real value of how many instances of a certain component exist.</li>
+    </ol>  
 
+With these assumptions and some preliminary inputs from the user including model and site information, site coordinates, and primary building information, the SP3 software was able to automate reports for risk analysis, detailed component damage breakdowns, and functional recovery. To name a few of the other changes made to the default model, a total of 2000 simulations were used, slender shear walls and RC Flat Slab were specified, an insulating glass unit glazing of 60% was approximated, and laterally braced metal stud partition walls with gypsum and wallpaper finishes were chosen to provide the most accurate match to the current state of the building. All building components used within the analysis were user-defined based on a given components spreadsheet in order to provide a more direct line of comparison to the PBE results, which uses the same component list. The default 1st Mode Period SA(T_1) of 1.91s in both directions was applied. The structure’s 1st-Mode Period, with 2%, 10%, and 50% exceedance probabilities in 50 years are listed in Table 2.
+
+</section>
+
+<table>
+  <caption>Table 2: Spectral Acceleration Values corresponding to the 1st-Mode Period of the building at various exceedance rates.</caption>
+  <thead>
+  <tr>
+    <th>Sa (T_1 = 1.91s)<br></th>
+    <th>2% in 50 Years</th>
+    <th>10% in 50 Years   <br></th>
+    <th> 50% in 50 Years   </th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;<br>Direction 1&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;<br>0.618&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;<br>0.279&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;<br>0.076&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;<br>Direction 2&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;<br>0.628&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;<br>0.282&nbsp;&nbsp;&nbsp;</td>
+    <td>&nbsp;&nbsp;&nbsp;<br>0.077&nbsp;&nbsp;&nbsp;</td>
+  </tr>
+</tbody>
+</table>
+
+<section>
+  <h4>PBE</h4>
+  The initial assumptions taken to build the PBE model are listed as shown:
+
+  <u>Assumptions</u>
+    <ol>
+        <li> A total of 9,125 worker days was specified for this analysis based on a 1 year repair timeframe with 25 workers. This number was computed by taking 365 days * 25 workers/day = 9,125 worker days. </li>
+        <li>All component assignments were taken from a pre-generated components spreadsheet. </li>
+        <li>Concrete link beams (Component ID: B.10.42) are not included because no EPD exists for beam rotation. </li>
+        <li>The fragilities of the concrete wall (Component ID: B.10.44) uses interstory vs. effective drift.</li>
+        <li>Nonlinear response history analyses were already performed prior to our evaluation and the necessary structural response estimates were obtained. This allowed us to run the model with 50 Engineering Demand Parameter (EDP) values for ground motion intensities with 2%, 10%, and 50% exceedance probability in 50 years (using 50 ground motions consistent with the seismic hazard).</li>
+
+Given the inputs and assumptions from above, the PBE software was run with varying peak interstory drift (PID) and peak floor acceleration (PFA) data corresponding to ground motion data with 2%, 10%, and 50% exceedance in 50 years. The input demand values were plotted along the building height. This is illustrated in Figure 4, where each row provides the drift and acceleration plots for 2%, 10, and 50% exceedance probability in 50 years.
+
+In order to perform a quick check on whether the data is reasonable, we could compare the results with historical data of similar buildings in the area. The relative magnitude of drift ratios should be within 10^-2 to 10^-3 which is consistent with what is shown below. 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/p1_4.png" title="mean drift and acc" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Mean Drift (Peak Interstory Drift, ratio) and Acceleration (Peak Floor Acceleration, g).
+</div>
+
+
+</section>
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
 Say you wanted to write a bit about your project before you posted the rest of the images.
 You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
