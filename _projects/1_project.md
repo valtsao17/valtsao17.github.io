@@ -190,6 +190,18 @@ In order to perform a quick check on whether the data is reasonable, we could co
     Mean Drift (Peak Interstory Drift, ratio) and Acceleration (Peak Floor Acceleration, g).
 </div>
 
+Note that the demands on the structure vary between PBE and SP3. In general, the PID values reported from SP3 are higher than those inputted in PBE. At 2% exceedance probability, the peak drift in PBE was around 0.02 whereas SP3 reports 0.42. At 10% exceedance probability, the peak drift in PBE was around 0.015 whereas SP3 reports 0.07. At 50% exceedance probability, the peak drift in PBE was around 0.0035 whereas SP3 reports 0, though the latter was likely truncated due to formatting. 
+
+However, the reverse is true for PFA values; PBE PFA values were typically higher than those from SP3. The differences in median PFA are shown in Figure 5. At lower stories, the PFA values are close between the two models, but the difference between the two models increases along the building height.
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/p1_5.png" title="pbe sp3 comparison" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Figure 5. PBE/SP3 comparison of median peak floor acceleration values by story, each direction. 
+</div>
+
 
 </section>
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
