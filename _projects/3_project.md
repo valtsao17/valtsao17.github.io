@@ -2,12 +2,16 @@
 layout: page
 title: reconstruting atmospheric fields with conditional data assimilation 
 description: 
-img: assets/img/7.jpg
+img: assets/img/NA_20210401_100hPa.png
 redirect: 
 importance: 3
 category: current
 ---
+Among the many generative tasks diffusion models can perform, inpainting—a technique for reconstructing missing or damaged portions of an image by leveraging contextual pixel information—has particular relevance here. The 2022 study by Lugmayr et al. demonstrated the potential of combining DDPMs with inpainting to reconstruct images through
+clever conditioning techniques. This progress raises an intriguing question that drives the motivation for this project: in a world of data sparsity, can diffusion models be employed to perform space-time interpolation for conditional data assimilation?
 
+To that end, this project uses a combined framework of DDPM and RePaint to produce reconstructed atmospheric fields for increasing levels of masked data and dimensionality. We present a novel method for generating 3D masks and demonstrate a high level of performance and accuracy when validated against observed data.
+<!--
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
 Make your photos 1/3, 2/3, or full width.
@@ -79,3 +83,4 @@ Here's the code for the last row of images above:
 ```
 
 {% endraw %}
+-->
