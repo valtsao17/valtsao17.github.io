@@ -18,7 +18,7 @@ was employed to find the number of cycles to failure against three different typ
 Potential sources of uncertainty within our analysis could’ve stemmed from the assumed crack shape, the variation in stress during the fatigue cycle, and the material properties of C and m. While it was noted that the specific steel used for the construction of this pipeline was 5L grade X52, only the C and m values of martensitic, ferrite-pearlite, and austenitic stainless were given. In addition, if more information was given about the behavior of
 the pipeline flow, further examination could’ve expanded upon the impact of flow type (laminar or turbulent) on applied forces within the wall. Further work could also include a fatigue analysis using the S-N curve to validate our findings with Paris’ Law and reduce variability in regards to the triaxiality of the section.
 
-
+<!--
 </section>
     ---
     layout: page
@@ -85,3 +85,4 @@ Here's the code for the last row of images above:
 ```
 
 {% endraw %}
+-->
