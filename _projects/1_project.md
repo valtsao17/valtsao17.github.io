@@ -8,8 +8,7 @@ category: past
 related_publications: true
 ---
 
-As the final project of CEE288 course at Stanford, students were asked to perform assessments of an on-campus building using HAZUS, SP3, and PBE at ground motion
-amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. Consequence predictions were evaluated across analysis tools, and how they vary as a function of ground motion intensity.
+assessment of an on-campus building using HAZUS, SP3, and PBE at ground motion amplitudes with 2%, 10%, and 50% exceedance probabilities in 50 years. consequence predictions were evaluated across analysis tools, and how they vary as a function of ground motion intensity.
 
 <section>
   <h3>Building Description</h3>
