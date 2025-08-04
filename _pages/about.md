@@ -9,9 +9,9 @@ profile:
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p>Multiphysics Geomechanics Lab</p>
-    <p>100 Science Drive</p>
-    <p>Durham, NC 27710</p>
+    <p>Valerie Tsao</p>
+    <p>climate + AI researcher</p>
+    <p>email: vt55@duke.edu</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
