@@ -13,6 +13,7 @@ a collection of the courses i've taken.
 <h5> phd </h5>
 <ul>
   <li>CEE506: Environmental Spatial Data Analysis </li>
+  <li>CEE690: Deep Learning Applications in Engineering</li>
 </ul>
 
 <h5> ms </h5>
@@ -21,7 +22,11 @@ a collection of the courses i've taken.
   <li>MS&E314: Optimization in Data Science and ML</li>
 </ul>
 
-<h3><strong><br>analysis</strong></h3>
+<h3><strong><br>analysis/computation</strong></h3>
+<h5> phd </h5>
+<li>CEE690: Chaotic Data Systems Analysis</li>
+<li>CEE690: Environmental Systems Analysis & Adaptation</li>
+
 <h5> ms </h5>
 <ul>
   <li>CEE280: Advanced Structural Analysis </li>
