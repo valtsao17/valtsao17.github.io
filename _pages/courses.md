@@ -24,8 +24,8 @@ a collection of the courses i've taken.
 
 <h3><strong><br>analysis/computation</strong></h3>
 <h5> phd </h5>
-<li>CEE690: Chaotic Data Systems Analysis</li>
-<li>CEE690: Environmental Systems Analysis & Adaptation</li>
+  <li>CEE690: Chaotic Data Systems Analysis</li>
+  <li>CEE690: Environmental Systems Analysis & Adaptation</li>
 
 <h5> ms </h5>
 <ul>
