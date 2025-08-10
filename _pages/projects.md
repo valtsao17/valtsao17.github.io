@@ -5,7 +5,7 @@ permalink: /projects/
 description: some stuff i'm working on.
 nav: true
 nav_order: 3
-display_categories: [current, past, fun]
+display_categories: [climate, diffusion, optimization, structural]
 horizontal: false
 ---
 

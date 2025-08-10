@@ -1,80 +1,365 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
+title: conditional diffusion models for synthetic precipitation maps
+description: ESAA, [cee690] - final project
+img: assets/img/p4_distribution_daymet.png
 importance: 3
-category: fun
+category: diffusion
+toc:
+  sidebar: left
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<h2>Executive Summary</h2>
+This project takes advantage of the generative property of conditional diffusion models for the application of creating synthetic precipitation maps. The motivation for this is centered around applications for weather forecasting, specifically within
+the context of storm transposition and prediction. Utilizing historical precipitation data focused around the San Jancinto River Basin in Texas, we train a diffusion model to implicitly learn the space-dependent dynamics of local precipitation for four defined classes: Low, Medium, High, Extreme. The results show alignment with preexisting trends and a Kernel Inception Distance (KID) score of 0.0821 was achieved, indicating decently high similarity to the distribution from which our training images were drawn from. The potential implications of this work present a fascinating opportunity to extend this as a new framework for initializing Numerical Weather Prediction (NWP) models. These models, inherently sensitive to initial conditions, often yield diverging estimates due to the chaotic nature of weather systems. The broader impact of this work would have far-reaching impacts on providing large-scale stakeholders with valuable information to make decisions that could influence resilience, disaster mitigation, and adaptation strategies. Future work extensions could involve transition to score-based (continuous) diffusion models, the incorporation of a physics loss, and expansion into higher dimensionalities.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+---
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+<h2>Background & Motivation</h2>
+The growing application of generative models in engineering over the past few decades has recently been augmented by a surge of interest in diffusion models. While generative modeling itself is not a new field—techniques such as Variational Autoencoders (VAEs) and Generative Adversarial Networks (GANs) have been around since the early 2010s—the stunning quality achievable through diffusion models has recently garnered a lot of enthusiasm. Since the seminal work of Sohl-Dickstein et al. in 2015 <a href="#ref-sohldickstein2015deepunsupervisedlearningusing">[1]</a>, substantial advancements have been made <a href="#ref-ho2020denoisingdiffusionprobabilisticmodels">[2]</a>, extending well beyond the boundaries of the computer science community. One particularly intriguing application of this progress is the use of diffusion models to generate synthetic precipitation maps. By training on historical precipitation data, we can leverage diffusion models to generate thousands of precipitation maps <a href="#ref-guilloteau2024generativediffusionmodelprobabilistic">[4]</a>, a use which has interesting implications for simulating storm scenarios. Especially when framed within the context of uncertainty quantification and risk analysis, capturing the spatial and temporal variability of rainfall events could be incredibly valuable. Such capabilities could significantly improve storm forecasting in terms of movement/trajectory, intensity, and even duration. In this project, we will focus on the San Jacinto River Basin situated in Texas, whose geographic context is shown in Figures <a href="#p4_riverbasins">1a</a>-<a href="#p4_san_jacinto">1b</a>.
+<div id="p4_riverbasins" class="row justify-content-center mt-3">
+  <div class="d-flex" style="gap: 2rem;">
+    <div style="height: 300px;">
+      <img src="/assets/img/p4_riverbasins.png" alt="River Basins in Texas"
+           style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
     </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div id="p4_san_jacinto" style="height: 300px;">
+      <img src="/assets/img/p4_san_jacinto.jpg" alt="San Jacinto River Basin"
+           style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
     </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
-```
 
-{% endraw %}
+<div class="caption">
+  Figure 1: (a) Left: River basins in Texas (USGS). (b) Right: Zoomed view of San Jacinto watershed (SJRA).
+</div>
+
+<h2>Data</h2>
+For this project, the Oak Ridge National Laboratory (ORNL) Daymet Version 4 R1 dataset was selected <a href="#ref-guilloteau2024generativediffusionmodelprobabilistic">[5]</a>. This dataset provides daily meteorological observations on a 1 km2 grid resolution for North America, Hawaii, and Puerto Rico. The dataset spans the
+period from January 1, 1980, to December 31, 2023, with a daily temporal resolution. This results in a total of 16,061 daily observations (2024−1980+1) years×365 days/year, where each observation represents a precipitation value per 1 km² grid cell over the San Jacinto River Basin. The dataset was acquired through NASA’s Earthdata online archive at the spatial extents of SW(28.766, -96.504) and NE(31.299, -93.445). From the histogram, it’s apparent that most days within the year experience 0 precipitation, with some higher values during the wet seasons and extreme values during storms. Figures <a href="#p4_maximum_rainfall">2b</a> and <a href="#p4_average_rainfall">2c</a> provide a visualization of maximum and average rainfall values per pixel across the spatial extent.
+<div class="row justify-content-center mt-3">
+  <div class="d-flex flex-wrap justify-content-center" style="gap: 2rem;">
+    <div style="height: 200px;">
+      <img src="/assets/img/p4_histogram.png" alt="Rainfall Histogram"
+           style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
+    </div>
+    <div id="p4_maximum_rainfall" style="height: 200px;">
+      <img src="/assets/img/p4_maximum_rainfall.png" alt="Maximum Rainfall"
+           style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
+    </div>
+    <div id="p4_average_rainfall" style="height: 200px;">
+      <img src="/assets/img/p4_average_rainfall.png" alt="Average Rainfall"
+           style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
+    </div>
+  </div>
+</div>
+
+<div class="caption">
+  Figure 2: (a) Left: Histogram of daily precipitation. (b) Middle: Maximum per-pixel rainfall. (c) Right: Average per-pixel rainfall (1980–2023).
+</div>
+
+<h3>Preprocessing</h3>
+Our first attempt at preprocessing involved converting the raw data from the Daymet dataset into $$64\times 64$$ images by linearly rescaling the rainfall values so that the minimum observation mapped to 0 and the maximum mapped to 255, then converting each data point to the nearest integer in the 0–255 grayscale range.  We then computed the maximum pixel value of each image and sorted them in ascending order, and set five categories based on the percentiles of the data: None, Low, Medium, High and Extreme. With this approach, two issues immediately stood out:
+- There were a lot of zero precipitation days in our dataset. This led to the percentiles being heavily skewed towards zero (meaning that even the 50th percentile was still zero), which in turn caused generations from the model to skew towards all black images.
+- The highest precipitation values were many standard deviations away from the mean. This led to the greyscale being even more skewed left (i.e. above pixel value 30, there were only a few instances of any of those numbers showing up, if at all). 
+
+As a result, we decided to use a logarithmic scale, set thresholds based on $$\textit{total}$$ daily rainfall rather than $$\textit{maximum}$$ daily rainfall, and removed all zero rainfall days (effectively removing the None class). To formalize this, let $$\{X_{d}(i,j)\}_{i=1,\dots,H,\;j=1,\dots,W}$$ denote the raw daily precipitation field on day $$d$$, with spatial dimensions $$H\times W$$.  We define the daily total as
+
+$$
+\begin{align*}
+T_d \;=\; \sum_{i=1}^H \sum_{j=1}^W X_{d}(i,j)\,,
+\end{align*}
+$$
+
+and discard all days with $$T_d=0$$. We then compute the empirical percentiles
+
+$$
+\begin{align*}
+q_{25},\;q_{50},\;q_{75}
+\;=\;\mathrm{Percentile}\bigl(\{T_d>0\},\,25,50,75\bigr).
+\end{align*}
+$$
+
+Next, we assign each day $$d$$ to one of four labels
+
+$$
+C_d = 
+\begin{cases}
+\text{low},     & T_d < q_{25},\\
+\text{medium},  & q_{25} \le T_d < q_{50},\\
+\text{high},    & q_{50} \le T_d < q_{75},\\
+\text{extreme}, & T_d \ge q_{75}.
+\end{cases}
+$$
+
+Now for each day $$d$$ and grid point $$(x,y)$$, we apply a logarithmic transform with offset $$\varepsilon>0$$:
+
+$$
+\begin{align*}
+L_d(x,y) \;=\;\ln\bigl(T_d(x,y)+\varepsilon\bigr).
+\end{align*}
+$$
+
+Let $$L_{\min} = \min_{d,x,y} L_d(x,y)$$ and $$L_{\max} = \max_{d,x,y} L_d(x,y).$$ We then normalize to the unit interval:
+
+$$
+\begin{align*}
+N_d(x,y)
+\;=\;
+\frac{L_d(x,y) - L_{\min}}{L_{\max} - L_{\min}},
+\qquad
+I_d(x,y)
+\;=\;
+\bigl\lfloor 255\,N_d(x,y)\bigr\rfloor
+\;\in\;\{0,\dots,255\}.
+\end{align*}
+$$
+
+Finally, each image $$I_d$$ is resized to an $$M\times M$$ dimension via bilinear interpolation and saved as an image with corresponding label $$C_d$$. Following this approach yielded training images that were more visually pleasing, but one more hurdle stood in our way: the missing data values for the Gulf of Mexico. We thought that the best way to represent these values on our scale was by setting "unknown" data points to be zero on greyscale, and to add a buffer for the lower bound of the data, meaning that we start the first nonzero precipitation value at pixel value 50. These images were then fed into the conditional diffusion models with their corresponding labels. To visualize the images, we created a custom colormap that sets pixel values 0-50 as black and 50-255 as $$\texttt{coolwarm}$$.
+
+<h2>Methods</h2>
+Conditional diffusion models extend the standard diffusion framework to generate samples from conditional distributions, typically given class labels. Formally, given data $$x_0$$ with associated class label $$y$$, the forward diffusion process gradually adds Gaussian noise over a finite sequence of timesteps $$t=1, \dots, T:$$
+$$
+\begin{align*}
+q(x_{1:T} | x_0) = \prod_{t=1}^T q( x_t | x_{t-1} ), \quad \text{with} \quad q(x_t | x_{t-1}) = \mathcal{N}(x_t ; 1 - \beta_t x_{t-1}, \beta_tI),
+\end{align*}
+$$
+where $$\beta_t \in  (0,1)$$ defines a variance schedule leading to $$q(x_T) \approx \mathcal{N} (0,I)$$.
+The generative (or reverse) process, parameterized by neural network weights $$\theta$$, learns the conditional distributions given label $$y$$:
+$$
+\begin{align*}
+p(x_{0:T} | y) = p(x_T) \prod_{t=1}^T p(x_{t-1}|x_t , y), \quad \text{with} \quad p (x_{t-1} | x_t , y) = \mathcal{N}(x_{t-1} ; (x_t, t, y), \sigma_t^2 I),
+\end{align*}
+$$
+typically initializing from the isotropic Gaussian prior $$p(x_T) = \mathcal{N}(0,I)$$. The network  explicitly conditions on both the timestep $$t$$ and the class label $$y$$, enabling targeted conditional generation. This is in contrast with the base (unconditional) diffusion model, which only conditions upon the timestep. During training, the network optimizes a simplified denoising score-matching objective:
+
+$$
+\begin{align*}
+L(\theta) = \mathbb{E}(x_0, y),t, [ || \epsilon  - \epsilon_\theta(x_t,t,y) ||^2 ], \quad \text{where} \quad x_t= \sqrt{\bar{\alpha_t}}x_0+ \sqrt{1 - \bar{\alpha_t}} \epsilon, \quad \epsilon \sim  \mathcal{N}(0,I),
+\end{align*}
+$$
+
+with cumulative variance parameters defined as $$\bar{\alpha_t}= \prod_{s=1}^t (1-\beta_s)$$. OpenAI’s guided diffusion model is used based on the 2021 paper by Dhariwa et al. <a href="#ref-dhariwal2021diffusionmodelsbeatgans">[3]</a> where the following key assumptions are utilized: (1) Instead of the fixed variance $$(x_t , t)$$ proposed in the original DDPM method, we parametrize this as a neural network where the reverse process variances denoted by $$\beta_t$$ and $$\tilde{\beta_t}$$  are learned; and (2) the training objective for $$ \epsilon_\theta (x_t, t)$$ and $$\Sigma_\theta= (x_t , t)$$ can be rewritten as a weighted form $$L_{simple} + L_{vlb}$$ where  $$L_{simple}$$ is the MSE between the predicted and actual noise, and $$L_{vlb}$$ represents the variational lower bound.
+
+<h2>Results</h2>
+OpenAI's guided diffusion model was utilized, which involved training both the unconditional diffusion and classifier separately. We first provide the results for a sample of the unconditional generations trained on 110k and 130k epochs respectively, shown in Figure <a href="#p4_uncond_gen_lr">3</a> below. These preliminary outputs help evaluate the model’s baseline performance prior to the introduction of class conditioning. Initially, a learning rate of $$3 \times 10^{-4}$$ resulted in outputs resembling random noise. However, after adjusting the learning rate to $$1 \times 10^{-4}$$ and training for longer, the model began generating more coherent samples.
+<div id="p4_uncond_gen_lr" class="row">
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid path="assets/img/p4_uncond_gen_lr.png" title="Unconditional Outputs" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  Figure 3: Unconditional generations for  <span>\(\texttt{lr=3e-4}\)</span> (top) and <span>\(\texttt{lr=3e-4}\)</span> (bottom).
+</div>
+
+To briefly comment on the architecture and hyperparameters of the model, guided diffusion leverages a UNet backbone, incorporating residual blocks and a combination of downsampling and upsampling convolutions. The only main changes made include using attention at 64$$\times$$64 on top of the 32$$\times$$32,  16$$\times$$16,  and 8$$\times$$8 resolutions from the original model. We observed that setting the variance scheduler to $$\texttt{True}$$ allowed for visually better generations, where outputs seemed to align more closely with ground truth distributions. Moving forward to the conditional generations, we depict the results of averaged generations per class in greyscale, alongside the corresponding average for each class during training directly below it in Figure <a href="#p4_averages_mosaic_4x2">4</a>. As shown, the model is doing a reasonably good job at capturing some of the important spatial features present within our study site such as the coastline of the Gulf of Mexico (which can be seen as the pure black outline in the bottom right). The observed zero-precipitation values over the Gulf are a reflection of the dataset itself, which only includes land-based precipitation measurements.
+
+<div id="p4_averages_mosaic_4x2" class="row">
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid path="assets/img/p4_averages_mosaic_4x2.png" title="Class Averages: Generated vs. Real" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  Figure 4: Averaged conditional generations for each class (Low, Medium, High, Extreme) with matching
+averaged training images per class.
+</div>
+
+Figure <a href="#p4_distribution_daymet">5</a> allows us to better grasp quantitatively how aligned we are to the mean of the average training per class. By plotting the distributions of our generations and the associated average of the training (denoted by the dotted line), we see that for most cases the generations are nearly centered at the mean of the corresponding class average.
+<div id="p4_distribution_daymet" class="row justify-content-center">
+  <div class="col-sm-10 mt-3 mt-md-0">
+    {% include figure.liquid path="assets/img/p4_distribution_daymet.png" title="Distribution of average pixel value of conditional generations by class along with corresponding mean of training set." class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  Figure 5: Distribution of average pixel value of conditional generations by class along with corresponding mean of training set.
+</div>
+
+To provide a more intuitive visual illustration of these results, Figures <a href="#p4_cond_gen_low">6a</a>-<a href="#p4_cond_gen_extreme">6d</a> shows a random sample from each class of generations in distinct rows, using the custom colormap discussed in the Preprocessing section. Here, we see more confirmation that the conditional diffusion model is ”learning” the dynamics of each precipitation class. Starting from the Low class in the top row, we observe all or mostly black pixels, indicating 0 precipitation as we’d expect. In subsequent rows, the intensity and coverage of precipitation increases all the way up to the Extreme class, where almost most of the site is experiencing high levels of precipitation (shown by the red).
+
+<div id="p4_cond_gen_low" class="row mt-3">
+  <div class="col-sm-6">
+    {% include figure.liquid path="assets/img/p4_low.png" title="Generations from the Low class." class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div class="col-sm-6">
+    {% include figure.liquid path="assets/img/p4_medium.png" title="Generations from the Medium class." class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-sm-6">
+    {% include figure.liquid path="assets/img/p4_high.png" title="Generations from the High class." class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div id="p4_cond_gen_extreme" class="col-sm-6">
+    {% include figure.liquid path="assets/img/p4_extreme.png" title="Generations from the Extreme class." class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+
+<div class="caption">
+  Figure 6: Random assortment of conditional generations sorted by class (Low, Medium, High, Extreme).
+</div>
+
+
+<h3>Evaluation Metics</h3>
+Unlike traditional machine learning frameworks where a train/test set are a straightforward method of evaluating the performance of a model, generative paradigms don't follow the same pipeline. While it's true that you would have a certain amount of samples dedicated to training in hopes that the diffusion model will "learn" the desired properties of your data, the analog of then seeing how it fares against a test set doesn't entirely work. This is because the diffusion model's job is to literally generate new samples and there is no ground truth to these generations. Experts in the field have constructed novel methods to evaluate the performance of a generative model. For this project, we initially wanted to assess our conditional diffusion model with the **Fréchet Inception Distance** (FID) score. The FID models two sets of images as if they were drawn from two multidimensional Gaussians, and calculates the distance between the two distributions as a measure of how well the generated sample matches the diversity of the training data. 
+
+Upon further investigation, we realized that FID is highly dependent on the size of the training set and the number of generations. We did not meet the minimum number of training images for the FID to be accurate ($$\sim 10000$$) <a href="#ref-binkowski2018demystifying">[6]</a>, and even if we did, we would not have had the computational power to generate that many samples in a feasible amount of time. Thus, we chose to evaluate the performance of our model using the **Kernel Inception Distance** (KID), which assesses the distance between real and generated image distributions using the squared Maximum Mean Discrepancy (MMD) on features extracted by a pretrained Inception network <a href="#ref-binkowski2018demystifying">[6]</a>. Let $$\{\mathbf{f}_i\}_{i=1}^n$$ and $$\{\mathbf{g}_j\}_{j=1}^m$$ be the $$d$$‑dimensional activation vectors of real and generated images, respectively, at a chosen layer. The unbiased estimator of squared MMD is
+$$
+\begin{equation}\label{eq:KID}
+    \mathrm{KID}^2 = \frac{1}{n(n-1)}\sum_{i\neq i'} k(\mathbf{f}_i,\mathbf{f}_{i'}) 
+    + \frac{1}{m(m-1)}\sum_{j\neq j'} k(\mathbf{g}_j,\mathbf{g}_{j'}) 
+    - \frac{2}{nm}\sum_{i,j} k(\mathbf{f}_i,\mathbf{g}_j),
+\end{equation}
+$$
+where the kernel is taken as $$k(\mathbf{u},\mathbf{v}) = (\frac{1}{d}\,\mathbf{u}^\top \mathbf{v} + 1)^3$$. KID yields nonnegative values, with smaller scores indicating closer agreement between the generated and real feature distributions. This is mainly used in measuring how well a trained diffusion model is at generating images that match the training (or input) distribution. As shown from Figure <a href="#p4_kid_graph">7</a>, the KID scores decreases exponentially as the number of epochs increases, and we observe that there is a leveling out at 100k epochs. We computed a KID score of 0.082134, which is considered sufficiently good when compared against other papers <a href="#ref-binkowski2018demystifying">[6]</a>. 
+<div id="p4_kid_graph" class="row justify-content-center">
+  <div class="col-sm-10 mt-3 mt-md-0 d-flex justify-content-center">
+    <div style="height: 550px;">
+      <img src="/assets/img/p4_kid_graph.png" alt="Plot of KID score vs. number of epochs"
+           style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
+    </div>
+  </div>
+</div>
+
+<div class="caption">
+  Figure 7: Plot of KID score vs. number of epochs. This graph shows the model converging to an asymptote at <span>\(\sim\)</span>100k epochs.
+</div>
+
+
+
+<h2>From Diffusion to Time Series</h2>
+A natural question that we may ask is whether or not it's possible to use diffusion models to generate plausible scenarios for use in predictive settings, particularly in climate forecasting. In its present state, we cannot directly compare unconditional generations to traditional autoregressive methods like the ones discussed in class. A naive solution would involve labelling the training set by day and training the conditional model on those labels. We could then "forecast" by generating a precipitation field conditioned on whatever target day we desired. However, this is infeasible due to the sheer amount of raw data necessary to train the model to an acceptable level of precision. It also does not take into account prior data at all, and so we would not be able to, for example, adequately predict the next day after a large storm.
+
+In this section we rigorously present a potential approach. While there wasn't enough time to fully explore and implement this, this paves the way for a future project on comparing diffusion-based methods to classical time-series forecasting methods.
+
+<h3>Temporal and Contextual Conditioning</h3>
+Standard DDPM generates samples from an unconditional prior or, in the conditional variant, only on a static label \(y\).  Here, we additionally condition on a learned latent state $$\mathbf{h}_{t-1}$$ summarizing all previous image frames $$\mathbf{x}_{1:t-1}$$.  Concretely, our reverse kernel becomes
+
+$$
+\begin{align*}
+p_\theta\bigl(\mathbf{x}_{t,\tau-1}\mid \mathbf{x}_{t,\tau},\,\mathbf{h}_{t-1}\bigr)
+=\mathcal{N}\!\Bigl(\mathbf{x}_{t,\tau-1};\,\mu_\theta(\mathbf{x}_{t,\tau},\tau,\mathbf{h}_{t-1}),\,\Sigma_\theta(\tau)\Bigr),
+\end{align*}
+$$
+
+where $$\mathbf{h}_{t-1} = \mathrm{SeqEnc}_\phi(\mathbf{x}_{1:t-1})$$ is produced by an RNN or Transformer encoder. This is in contrast to the UNet traditionally found in diffusion models, which are unable to handle sequential data. Then for the loss function, while traditional DDPM minimizes the variational lower bound per frame:
+
+$$
+\begin{align*}
+\mathcal{L}_{\mathrm{VLB}} 
+= \mathbb{E}_q\!\bigl[D_{\mathrm{KL}}(q(x_{t,\tau-1}\!\mid x_{t,\tau},x_{t,0})\;\|\;p_\theta(x_{t,\tau-1}\!\mid x_{t,\tau},t,y))\bigr].
+\end{align*}
+$$
+
+We can instead augment this with a sequential consistency term,
+
+$$
+\begin{align*}
+\mathcal{L}_{\mathrm{seq}} 
+= \sum_{t=2}^T \bigl\|\mathrm{SeqEnc}_\phi(\mathbf{x}_{1:t-1}) \;-\; \mathrm{SeqEnc}_\phi(\hat{\mathbf{x}}_{1:t-1})\bigr\|^2,
+\end{align*}
+$$
+
+where $$\hat{\mathbf{x}}_{1:t-1}$$ are the denoised reconstructions. Then the total loss is
+
+$$
+\begin{align*}
+\mathcal{L}
+= \mathcal{L}_{\mathrm{Simple}} + \lambda_{\mathrm{VLB}}\mathcal{L}_{\mathrm{VLB}} + \lambda_{\mathrm{seq}}\mathcal{L}_{\mathrm{seq}}.
+\end{align*}
+$$
+
+<h3>Autoregressive Methods</h3>
+Let $$\{X_t\}_{t=1}^T$$ be a sequence of two-dimensional arrays (images), where each
+$$X_t \in \mathbb{R}^{H \times W}$$. We denote the pixel intensity (or value) at location $$(i, j)$$ in image $$X_t$$ as $$x_t(i,j)$$, for $$1 \le i \le H$$ and $$1 \le j \le W$$. We assume these images have been observed at equally spaced time steps $$t = 1,2,\dots,T$$. We define an *ground truth set*
+
+$$
+\begin{align*}
+   \{X_1, X_2, \ldots, X_{T_{\mathrm{train}}}\},
+\end{align*}
+$$
+
+with $$$T_{\mathrm{train}} < T$$, and a subsequent *test (or forecast) horizon*
+
+$$
+\begin{align*}
+   \{X_{T_{\mathrm{train}}+1}, X_{T_{\mathrm{train}}+2}, \ldots, X_T\}.
+\end{align*}
+$$
+
+Let $$S = T - T_{\mathrm{train}}$$ denote the number of steps we wish to forecast. We aim to construct one-step-ahead forecasts recursively for $$S$$ future time instants, i.e., forecast $$\widehat{X}_{T_{\mathrm{train}}+1}, \widehat{X}_{T_{\mathrm{train}}+2}, \ldots, \widehat{X}_{T_{\mathrm{train}}+S},$$ where each $$\widehat{X}_{t} \in \mathbb{R}^{H \times W}$$. In its simplest form, a univariate AR(1) process states:
+
+$$
+\begin{align*}
+   x_t = c + \phi \, x_{t-1} + \varepsilon_t,
+\end{align*}
+$$
+
+where $$c$$ and $$$\phi$$ are constants to be estimated, and $$$\varepsilon_t$$ is a noise term (often assumed to be white noise with zero mean and finite variance). In our present setting, the data at each time $$t$$ is a two-dimensional image $$X_t$$. To apply AR(1) independently to each pixel location $$(i,j)$$, we guess the following:
+
+$$
+\begin{align*}
+   x_t(i,j) \;=\; c(i,j) \;+\; \phi(i,j) \; x_{t-1}(i,j) \;+\; \varepsilon_t(i,j),
+\end{align*}
+$$
+
+for every $$1 \le i \le H, \, 1 \le j \le W$$. The parameters $$c(i,j)$$ and $$\phi(i,j)$$ may vary across spatial locations, and the noise $$\varepsilon_t(i,j)$$ is indexed accordingly. To proceed, we can write the noise terms $$\varepsilon_t(i,j)$$ as independent realizations of some zero-mean distribution:
+
+$$
+\begin{align*}
+   \mathbb{E}[\varepsilon_t(i,j)] = 0, 
+   \quad \mathrm{Var}[\varepsilon_t(i,j)] = \sigma^2(i,j).
+\end{align*}
+$$
+
+We do *not* assume spatial dependence between the error terms here (i.e., no cross-covariance between different pixel locations) for this simple example. However, in a realistic project setting we would attempt to model this with other methods.
+
+<h3>Combining the Two Methods</h3>
+The autoregressive methods and diffusion-based techniques do not need to be viewed as competing paradigms, but can be seen rather as complementary tools whose strengths can be combined to address the spatio-temporal forecasting of precipitation. In a pure AR framework we model
+
+$$
+\begin{align*}
+p(\mathbf{x}_{t+1}\mid \mathbf{x}_{1:t})=\prod_{s=1}^n p(\mathbf{x}_{t+s}\mid \mathbf{x}_{1:t+s-1}),
+\end{align*}
+$$
+
+learning to predict the next frame directly from a sliding window of past frames. This yields fast, single-step generation but often suffers from error accumulation, especially when forecasting many steps ahead. Conversely, diffusion models learn a sequence of denoising operators that gradually transform white noise into plausible precipitation fields, offering greater sample diversity and robustness to small perturbations. However, this occurs at the cost of many iterative steps per frame.
+
+One natural hybrid is to bootstrap diffusion sampling with an AR mechanism: an AR network first produces a “coarse” forecast $$\tilde{\mathbf{x}}_{t+1:t+n}$$, and a conditional diffusion model then refines these predictions by running a small number of denoising steps initialized around $$\tilde{\mathbf{x}}$$. This can dramatically reduce the diffusion chain length $$T$$ required for high-fidelity output, while leveraging the AR model’s speed to capture large-scale temporal trends. Alternatively, we can inject temporally coherent AR features directly into the diffusion condition $$\mathbf{h}_{t-1}$$ enabling the diffusion network to focus its capacity on modeling fine-scale structure (e.g. convective cells, storm edges) rather than gross temporal dynamics.
+
+In summary, future work should not only explore standalone improvements to either AR or diffusion approaches, but also their collective integration. Hybrid schemes such as AR-initialized diffusion or diffusion-regularized AR are promising directions that combine the fast rollout of autoregression with the high-fidelity, uncertainty-aware synthesis of diffusion. Pursuing these directions could yield precipitation-forecasting systems that are operationally efficient and accurate.
+
+<h2>Conclusion & Broader Impact</h2>
+This project was able to provide feasible generations of precipitation maps conditioned on a given intensity class. However, an unexpected pitfall emerged when we observed that the distinction between $$\texttt{Nan}$$ and zero values in the data was not fully addressed. While a custom colormap was implemented to visually represent these as black, one could argue that these values carry distinct significance. A simple solution would involve differentiating between $$\texttt{Nan}$$ (which could be mapped to pure black) and zero values (which could be mapped to the lowest color value, dark blue, in $$\texttt{coolwarm}$$). Unfortunately, this improvement was realized too late in the project, and integrating this change would have necessitated retraining both the classifier and the model, followed by generating additional samples. There are many ways in which the scope of this work could be amplified. For one, incorporating the underlying physics of local climate dynamics could provide a more realistic foundation for the generated maps. Elevating this to a higher dimensionality of space (i.e. generating 3D outputs as opposed to 2D images) is another pathway that could boost the model's predictive capabilities. Another direction would be trying to integrate autoregressive diffusion models so that we could leverage a temporal component to capture the evolution of storms over time. Each of these avenues present another perspective at which to view this problem and could warrant their own projects.
+
+While the impact of generative AI could be discussed in full, we limit the discussion to diffusion models within the context of climate applications. Perhaps the most apparent benefit to these would be the ability to improve climate model predictions and subsequently inform decisions at the policy-level. These decisions have the potential to impact people's livelihoods and give more reliable information about the local-level effects of vulnerable communities which have historically been neglected. The associated risks with this work are not usually as obvious, but are just as significant. Overdependence on these generative models could prevent us from truly understanding the causes of projected trajectories, and the popularization of a result we do not fully understand could spur distrust in the scientific community. Perhaps more importantly, if this framework were to be used for larger climate models without careful communication, they risk amplifying the sentiment of eco-anxiety, leading to a loss in motivation for the general public to respond proactively to climate action. Further work on how to apply this in a systematic method should be pursued, as well as the development of a robust metric for which to evaluate these across different model types. 
+
+---
+
+<h2 id="references">References</h2>
+<ol>
+  <li id="ref-sohldickstein2015deepunsupervisedlearningusing">
+    Sohl-Dickstein, J., Weiss, E. A., Maheswaranathan, N., &amp; Ganguli, S. (2015). <strong>Deep Unsupervised Learning using Nonequilibrium Thermodynamics</strong>. arXiv:1503.03585.  
+    <a href="https://arxiv.org/abs/1503.03585">https://arxiv.org/abs/1503.03585</a>
+  </li>
+  <li id="ref-ho2020denoisingdiffusionprobabilisticmodels">
+    Ho, J., Jain, A., &amp; Abbeel, P. (2020). <strong>Denoising Diffusion Probabilistic Models</strong>. arXiv:2006.11239.  
+    <a href="https://arxiv.org/abs/2006.11239">https://arxiv.org/abs/2006.11239</a>
+  </li>
+  <li id="ref-dhariwal2021diffusionmodelsbeatgans">
+    Dhariwal, P., &amp; Nichol, A. (2021). <strong>Diffusion Models Beat GANs on Image Synthesis</strong>. arXiv:2105.05233.  
+    <a href="https://arxiv.org/abs/2105.05233">https://arxiv.org/abs/2105.05233</a>
+  </li>
+  <li id="ref-guilloteau2024generativediffusionmodelprobabilistic">
+    Guilloteau, C., Kerrigan, G., Nelson, K., Migliorini, G., Smyth, P., Li, R., &amp; Foufoula-Georgiou, E. (2024). <strong>A Generative Diffusion Model for Probabilistic Ensembles of Precipitation Maps Conditioned on Multisensor Satellite Observations</strong>. arXiv:2409.16319.  
+    <a href="https://arxiv.org/abs/2409.16319">https://arxiv.org/abs/2409.16319</a>
+  </li>
+  <li id="ref-daymet">
+    Thornton, M. M., Shrestha, R., Wei, Y., Thornton, P. E., &amp; Kao, S.-C. (2022). <strong>Daymet: Annual Climate Summaries on a 1-km Grid for North America, Version 4 R1</strong>. ORNL Distributed Active Archive Center.  
+    <a href="https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=2130">https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=2130</a>  
+    DOI: <a href="https://doi.org/10.3334/ORNLDAAC/2130">10.3334/ORNLDAAC/2130</a>
+  </li>
+  <li id="ref-binkowski2018demystifying">
+    Bińkowski, M., Sutherland, D. J., Arbel, M., &amp; Gretton, A. (2018). <strong>Demystifying MMD GANs</strong>. arXiv preprint arXiv:1801.01401.  
+    <a href="https://arxiv.org/abs/1801.01401">https://arxiv.org/abs/1801.01401</a>
+  </li>
+</ol>
