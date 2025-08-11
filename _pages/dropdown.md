@@ -14,7 +14,7 @@ children:
     permalink: /courses/
   - title: divider
   - title: CV
-    permalink: /CV/
+    permalink: /cv/
   - title: divider
   - title: blog
     permalink: /blog/
