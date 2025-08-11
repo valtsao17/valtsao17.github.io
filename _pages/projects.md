@@ -2,7 +2,7 @@
 layout: page
 title: projects
 permalink: /projects/
-description: some stuff i'm working on
+description: some stuff i'm work(ing)/(ed) on
 nav: false
 nav_order: 3
 display_categories: [climate, diffusion, optimization, structural]

@@ -24,7 +24,7 @@ PhD Candidate @ Duke University.
 
 hi, thanks for stopping by! 
 
-i'm valerie, a PhD student at Duke University working at the intersection of climate science and deep learning. my current research interests include: the application of physics-informed neural networks to improve climate modeling and forecasting, the role of land heterogeneity in the migration of carbon emissions, and the use of spatial downscaling to inform community resilience policies at the regional scale.
+i'm valerie, a PhD candidate at Duke University working at the intersection of climate science and deep learning. my current research interests include: the application of physics-informed neural networks to improve climate modeling and forecasting, the role of land heterogeneity in the migration of carbon emissions, and the use of spatial downscaling to inform community resilience policies at the regional scale.
 
 previously, i obtained my MS in Structural Engineering and Geomechanics from Stanford University. in my free time, i enjoy trying fun baking recipes, finding new coffee shops to visit, practicing pilates, and reading.
 
