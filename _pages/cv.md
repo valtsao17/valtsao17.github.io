@@ -2,7 +2,7 @@
 layout: cv
 permalink: /cv/
 title: "CV"
-nav: true
+nav: false
 nav_order: 5
 
 # Point this at your PDF file in assets/pdf/ or leave blank if you don’t want the button.
