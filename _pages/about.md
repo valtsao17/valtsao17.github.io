@@ -9,14 +9,17 @@ profile:
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p>Valerie Tsao</p>
-    <p>climate + AI researcher</p>
-    <p>email: vt55@duke.edu</p>
+    <div style="text-align: center;">
+      <p>email: vt55@duke.edu</p>
+    </div>
+  #<p>Valerie Tsao</p>
+  #<p>climate + AI researcher</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
+
 PhD Student @ Duke University.
 
 hi, thanks for stopping by! 

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: failure of 2002 rupture of enbridge pipeline 
-description: "[cee305] - final project"
+title: fracture analysis
+description: "failure of 2002 rupture of enbridge pipeline, [cee305] - final project"
 img: 
 importance: 2
 category: structural

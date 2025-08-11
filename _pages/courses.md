@@ -7,7 +7,7 @@ nav: true
 nav_order: 6
 ---
 
-a collection of the courses i've taken. 
+a collection of the courses i've taken
 
 <h3><strong>machine learning</strong></h3>
 <h5> phd </h5>
@@ -24,8 +24,10 @@ a collection of the courses i've taken.
 
 <h3><strong><br>analysis/computation</strong></h3>
 <h5> phd </h5>
+<ul>
   <li>CEE690: Chaotic Data Systems Analysis</li>
   <li>CEE690: Environmental Systems Analysis & Adaptation</li>
+</ul>
 
 <h5> ms </h5>
 <ul>

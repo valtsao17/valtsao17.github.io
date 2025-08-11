@@ -38,7 +38,7 @@ The growing application of generative models in engineering over the past few de
 For this project, the Oak Ridge National Laboratory (ORNL) Daymet Version 4 R1 dataset was selected <a href="#ref-guilloteau2024generativediffusionmodelprobabilistic">[5]</a>. This dataset provides daily meteorological observations on a 1 km2 grid resolution for North America, Hawaii, and Puerto Rico. The dataset spans the
 period from January 1, 1980, to December 31, 2023, with a daily temporal resolution. This results in a total of 16,061 daily observations (2024−1980+1) years×365 days/year, where each observation represents a precipitation value per 1 km² grid cell over the San Jacinto River Basin. The dataset was acquired through NASA’s Earthdata online archive at the spatial extents of SW(28.766, -96.504) and NE(31.299, -93.445). From the histogram, it’s apparent that most days within the year experience 0 precipitation, with some higher values during the wet seasons and extreme values during storms. Figures <a href="#p4_maximum_rainfall">2b</a> and <a href="#p4_average_rainfall">2c</a> provide a visualization of maximum and average rainfall values per pixel across the spatial extent.
 <div class="row justify-content-center mt-3">
-  <div class="d-flex flex-wrap justify-content-center" style="gap: 2rem;">
+  <div class="d-flex flex-nowrap justify-content-center" style="gap: 2rem;">
     <div style="height: 200px;">
       <img src="/assets/img/p4_histogram.png" alt="Rainfall Histogram"
            style="height: 100%; object-fit: contain;" class="img-fluid rounded z-depth-1" />
