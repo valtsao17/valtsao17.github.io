@@ -18,3 +18,54 @@ html[data-theme="light"] a:focus {
   color: var(--global-link-hover-color) !important;
   text-decoration: underline;
 }
+
+/* _sass/_custom.scss
+   Targeted overrides: progress bar + callouts (light mode)
+*/
+
+html[data-theme="light"] {
+  /* make sure accent var is set too (keeps other accents consistent) */
+  --global-theme-color: #1a73e8;
+}
+
+/* Progress / loading bar (top reader progress, etc.) */
+html[data-theme="light"] .reading-progress,
+html[data-theme="light"] .progress,
+html[data-theme="light"] .progress-bar,
+html[data-theme="light"] #progress,
+html[data-theme="light"] #reading-progress,
+html[data-theme="light"] .page-progress,
+html[data-theme="light"] .progress__bar {
+  background-color: var(--global-theme-color) !important;
+}
+
+/* Callouts (common classes used by themes and editor plugins) */
+html[data-theme="light"] .callout,
+html[data-theme="light"] .callout.primary,
+html[data-theme="light"] .callout--primary,
+html[data-theme="light"] .callout.warning,
+html[data-theme="light"] .admonition,
+html[data-theme="light"] .note,
+html[data-theme="light"] .alert {
+  border-left-color: var(--global-theme-color) !important;
+  color: inherit;
+}
+
+/* Links inside callouts should follow the same accent */
+html[data-theme="light"] .callout a,
+html[data-theme="light"] .admonition a,
+html[data-theme="light"] .alert a {
+  color: var(--global-theme-color) !important;
+}
+
+/* If callouts use a tinted background, change that slightly (optional) */
+html[data-theme="light"] .callout {
+  background-color: rgba(26, 115, 232, 0.04) !important; /* subtle tint of #1a73e8 */
+}
+
+
+/* Make blockquote (callout) font match body text */
+blockquote {
+  font-size: 1em !important;
+  font-style: normal !important;
+}
