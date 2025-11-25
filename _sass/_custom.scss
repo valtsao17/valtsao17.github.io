@@ -1,0 +1,20 @@
+/* _sass/_custom.scss
+   Set link color for al-folio light theme only.
+*/
+
+html[data-theme="light"] {
+  --global-link-color: #1a73e8;       /* link color (nice accessible blue) */
+  --global-link-hover-color: #1257b3; /* hover color (darker) */
+}
+
+/* optional: force anchors if some components don't use the variable */
+html[data-theme="light"] a,
+html[data-theme="light"] a:visited {
+  color: var(--global-link-color) !important;
+}
+
+html[data-theme="light"] a:hover,
+html[data-theme="light"] a:focus {
+  color: var(--global-link-hover-color) !important;
+  text-decoration: underline;
+}
