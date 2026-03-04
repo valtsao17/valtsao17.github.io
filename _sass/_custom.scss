@@ -3,8 +3,8 @@
 */
 
 html[data-theme="light"] {
-  --global-link-color: #1a73e8;       /* link color (nice accessible blue) */
-  --global-link-hover-color: #1257b3; /* hover color (darker) */
+  --global-link-color: #aec6cf;       /* link color (nice accessible blue) */
+  --global-link-hover-color: #61828a; /* hover color (darker) */
 }
 
 /* optional: force anchors if some components don't use the variable */
@@ -25,7 +25,7 @@ html[data-theme="light"] a:focus {
 
 html[data-theme="light"] {
   /* make sure accent var is set too (keeps other accents consistent) */
-  --global-theme-color: #1a73e8;
+  --global-theme-color: #61828a;
 }
 
 /* Progress / loading bar (top reader progress, etc.) */
