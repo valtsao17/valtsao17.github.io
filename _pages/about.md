@@ -6,7 +6,7 @@ subtitle: <!-- <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc. -->
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: valerie_profile.png
   image_circular: true # crops the image to make it circular
   more_info: >
     <div style="text-align: center;">
@@ -30,7 +30,7 @@ Previously, I obtained my MS in Structural Engineering and Geomechanics from Sta
 
 I'm always happy to connect with anyone interested in exchanging ideas or exploring collaborations. Increasing the representation of women in climate science and AI is a core focus of mine, and I welcome conversations about research directions, career trajectories, and future opportunities.
 <!--
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `valerie_profile.png` and put it in the `img/` folder.
 
 Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
 
