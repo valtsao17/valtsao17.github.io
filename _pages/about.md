@@ -22,12 +22,13 @@ social: true # includes social icons at the bottom of the page
 
 PhD Candidate @ Duke University.
 
-hi, thanks for stopping by! 
+Hi, thanks for stopping by!
 
-i'm valerie, a PhD candidate at Duke University working at the intersection of climate science and deep learning. my current research interests include: the application of physics-informed neural networks to improve climate modeling and forecasting, the role of land heterogeneity in the migration of carbon emissions, and the use of spatial downscaling to inform community resilience policies at the regional scale.
+I'm Valerie, a PhD candidate at Duke University working at the intersection of climate science and generative deep learning. My research focuses on integrating physical constraints with generative architectures (specifically diffusion and flow-based models) to improve forecasting in data-scarce regions. I am particularly interested in the synthetic generation of extreme weather events and exploring the mechanistic interpretability of latent solution manifolds. My ultimate motivation is translating complex models into actionable policies for regional community resilience.
 
-previously, i obtained my MS in Structural Engineering and Geomechanics from Stanford University. in my free time, i enjoy trying fun baking recipes, finding new coffee shops to visit, practicing pilates, and reading.
+Previously, I obtained my MS in Structural Engineering and Geomechanics from Stanford University. In my free time, I enjoy trying fun baking recipes, finding new coffee shops to visit, practicing Pilates, and reading.
 
+I'm always happy to connect with anyone interested in exchanging ideas or exploring collaborations. Increasing the representation of women in climate science and AI is a core focus of mine, and I welcome conversations about research directions, career trajectories, and future opportunities.
 <!--
 Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
 
